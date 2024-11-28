@@ -26,7 +26,7 @@ std::vector<std::string> readLine(std::fstream &file, char delimiter = '\0');
  */
 std::vector<std::vector<std::string>> readFullFile(
     std::fstream &file, char delimiter = '\0', int skipLines = 0,
-    bool columnwise = true);
+    bool columnwise = false);
 
 /**
  * Trim all trailing characters

@@ -1,12 +1,12 @@
 #include "reader.h"
 
-std::vector<std::string> readLine(std::fstream *file, char delimiter) {
+std::vector<std::string> readLine(std::fstream& file, char delimiter) {
   std::vector<std::string> result = {};
 
   std::string word("");
   char tmp;
 
-  while (file->get(tmp)) {
+  while (file.get(tmp)) {
     // line end
     if (tmp == '\n') {
       break;
@@ -29,7 +29,7 @@ std::vector<std::string> readLine(std::fstream *file, char delimiter) {
 }
 
 std::vector<std::vector<std::string>> readFullFile(
-    std::fstream *file, char delimiter, int skipLines, bool columnwise) {
+    std::fstream &file, char delimiter, int skipLines, bool columnwise) {
   std::vector<std::vector<std::string>> result({{}});
 
   // Skip lines
@@ -38,7 +38,7 @@ std::vector<std::vector<std::string>> readFullFile(
   }
 
   bool first = true;
-  while (!file->eof()) {
+  while (!file.eof()) {
     std::vector<std::string> line = readLine(file, delimiter);
 
     if (columnwise) {
@@ -57,4 +57,10 @@ std::vector<std::vector<std::string>> readFullFile(
   }
 
   return result;
+}
+
+std::string& trim(std::string& input, char trimc) {
+  while(input[0] == trimc) input.erase(input.begin());
+  while(input[input.size() - 1] == trimc) input.pop_back();
+  return input;
 }

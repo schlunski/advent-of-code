@@ -1,7 +1,6 @@
 #pragma once
 
 #include <fstream>
-#include <map>
 #include <string>
 #include <vector>
 
@@ -21,10 +20,10 @@ std::vector<std::string> readLine(std::fstream *file, char delimiter = '\0');
  * @param[in] file file to read a line from
  * @param[in] delimiter seperator for the lines
  * @param[in] skipLines deticates how many line in the file should be skipped
- * @param[in] collumwise deticates if read collum- or rowwise
+ * @param[in] collumwise deticates if sorted collum- or rowwise
  *
  * @return Table of word in the file
  */
 std::vector<std::vector<std::string>> readFullFile(
     std::fstream *file, char delimiter, int skipLines = 0,
-    bool collumwise = true);
+    bool columnwise = true);

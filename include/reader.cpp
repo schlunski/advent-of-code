@@ -29,8 +29,8 @@ std::vector<std::string> readLine(std::fstream *file, char delimiter) {
 }
 
 std::vector<std::vector<std::string>> readFullFile(
-    std::fstream *file, char delimiter, int skipLines, bool collumwise) {
-  std::vector<std::vector<std::string>> result = {{}};
+    std::fstream *file, char delimiter, int skipLines, bool columnwise) {
+  std::vector<std::vector<std::string>> result({{}});
 
   // Skip lines
   for (int i = 0; i < skipLines; i++) {
@@ -41,14 +41,17 @@ std::vector<std::vector<std::string>> readFullFile(
   while (!file->eof()) {
     std::vector<std::string> line = readLine(file, delimiter);
 
-    if (collumwise) {
-      for (size_t collum = 0; collum < line.size(); collum++) {
-        if (first)
-          result.push_back({});
-        result[collum].push_back(line[collum]);
+    if (columnwise) {
+      for (size_t column = 0; column < line.size(); column++) {
+        if (first && column < line.size() - 1)
+          result.push_back(std::vector<std::string>{});
+        result[column].push_back(line[column]);
       }
       first = false;
     } else {
+      if (first)
+        result.pop_back();
+      first = false;
       result.push_back(line);
     }
   }

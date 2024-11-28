@@ -30,7 +30,7 @@ TEST_CASE("reading one line at a time", "[readLine]") {
 TEST_CASE("reading full file", "[readFullFile]") {
   std::fstream file("test.csv");
   std::vector<std::vector<std::string>> lines;
-  
+
   SECTION("columnwise") {
     SECTION("without skipping lines") {
       lines = readFullFile(file, ',');
@@ -74,8 +74,16 @@ TEST_CASE("Trimming strings", "[trim]") {
   std::string word("   basic   ");
   REQUIRE(trim(word, ' ') == "basic");
   REQUIRE(word == "basic");
-  
+
   word = ";testing;;";
   REQUIRE(trim(word, ';') == "testing");
   REQUIRE(word == "testing");
+}
+
+TEST_CASE("Seperate string", "[seperate]") {
+  std::string line("eins,zwei;drei");
+  std::vector<std::string> words = seperate(line, ';');
+
+  REQUIRE(words[0] == "eins,zwei");
+  REQUIRE(words[1] == "drei");
 }

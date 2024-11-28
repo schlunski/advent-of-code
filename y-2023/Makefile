@@ -1,14 +1,12 @@
 CXX = g++
 CXXFLAGS = -std=c++17
 
-DAYS = $(shell seq -w 1 24)
-
-all: day_$(DAYS)
+DAYS = $(addprefix day_, $(shell seq -w 1 24))
 
 reader:
 	$(CXX) $(CXXFLAGS) -c ../include/reader.cpp
 
-day_$(DAYS): reader
+$(DAYS): reader
 	$(CXX) $(CXXFLAGS) -o $@.exe $@.cpp $<.o
 	./$@.exe
 

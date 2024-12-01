@@ -121,10 +121,11 @@ int puzzleTwo(bool debug = false) {
   return result;
 }
 
-int main() {
-  // std::cout << puzzleOne() << "\n";
-
-  std::cout << puzzleTwo(true) << "\n";
-
+int main(int argc, char *argv[]) {
+  bool debug = (argc > 1) ? true : false;
+  std::cout << "Result Puzzle 1: " << puzzleOne(debug)
+            << "\n"; // solution: 55386
+  std::cout << "Result Puzzle 2: " << puzzleTwo(debug)
+            << "\n"; // solution: 54824
   return 0;
 }

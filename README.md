@@ -7,7 +7,7 @@ Just my personal repository for [Advent of Code](https://adventofcode.com/)
 #include <iostream>
 
 int puzzleOne(bool debug) {
-  std::fstream file("puzzle_inputs/input_01.txt");
+  std::fstream file("puzzle_inputs/input_xx.txt");
   std::vector<std::vector<std::string>> collums =
       readFullFile(file, ' ', 0, false);
 
@@ -21,7 +21,18 @@ int puzzleOne(bool debug) {
   return result;
 }
 int puzzleTwo(bool debug) {
-  
+  std::fstream file("puzzle_inputs/input_xx.txt");
+  std::vector<std::vector<std::string>> collums =
+      readFullFile(file, ' ', 0, false);
+
+  int result = 0;
+
+  file.close();
+
+  if (debug)
+    std::cout << "0 = " << result << "\n";
+
+  return result;
 }
 int main(int argc, char *argv[]) {
   bool debug = (argc > 1) ? true : false;

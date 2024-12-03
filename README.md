@@ -16,9 +16,10 @@ int puzzleOne(bool debug) {
   std::vector<std::vector<std::string>> lines = readFullFile(file, ' ');
 
   int result = 0;
-
+  int lineNumb = 0;
   for (auto &&line : lines) {
     
+    ++lineNumb;
   }
 
   file.close();

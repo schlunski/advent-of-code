@@ -8,15 +8,20 @@ Just my personal repository for [Advent of Code](https://adventofcode.com/)
 
 int puzzleOne(bool debug) {
   std::fstream file("puzzle_inputs/input_xx.txt");
-  std::vector<std::vector<std::string>> collums =
-      readFullFile(file, ' ', 0, false);
+  if (!file.is_open()) {
+    std::cerr << "Couldn't open file!\n";
+    return 0;
+  }
+
+  std::vector<std::vector<std::string>> lines = readFullFile(file, ' ');
 
   int result = 0;
 
-  file.close();
+  for (auto &&line : lines) {
+    
+  }
 
-  if (debug)
-    std::cout << "0 = " << result << "\n";
+  file.close();
 
   return result;
 }

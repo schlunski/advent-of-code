@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++17
+CXXFLAGS = -std=c++17 -O3
 
 DAYS = $(addprefix day_, $(shell seq -w 1 24))
 DAYSDEBUG = $(addsuffix _debug, $(DAYS))

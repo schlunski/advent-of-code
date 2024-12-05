@@ -1,7 +1,7 @@
 # advent-of-code
 My personal repository for [Advent of Code](https://adventofcode.com/) using C++17
 
-# structe
+# structure
 - ```include``` folder with file for helperfunctions used throughout the day
 - ```y-20xx``` folder for advent of code of year 20xx
 - ```y-20xx/puzzle_inputs``` folder for inputs for each day in form ```input_xx.txt```

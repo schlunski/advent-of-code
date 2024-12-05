@@ -14,7 +14,7 @@ Code can be run via ```make day_xx``` in the corresponding year folder. For debu
 #include "../include/reader.h"
 #include <iostream>
 
-int puzzleOne(bool debug) {
+int puzzle_one(bool debug) {
   std::fstream file("puzzle_inputs/input_xx.txt");
   if (!file.is_open()) {
     std::cerr << "Couldn't open file!\n";
@@ -25,7 +25,7 @@ int puzzleOne(bool debug) {
 
   int result = 0;
   int lineNumb = 0;
-  for (auto &&line : lines) {
+  for (auto line : lines) {
     
     ++lineNumb;
   }
@@ -35,15 +35,15 @@ int puzzleOne(bool debug) {
   return result;
 }
 
-int puzzleTwo(bool debug) {
-  
+int puzzle_two(bool debug) {
+  return -1;
 }
 
 int main(int argc, char *argv[]) {
   bool debug = (argc > 1) ? true : false;
-  std::cout << "Result Puzzle 1: " << puzzleOne(debug)
+  std::cout << "Result Puzzle 1: " << puzzle_one(debug)
             << "\n"; // solution:
-  std::cout << "Result Puzzle 2: " << puzzleTwo(debug)
+  std::cout << "Result Puzzle 2: " << puzzle_two(debug)
             << "\n"; // solution:
   return 0;
 }

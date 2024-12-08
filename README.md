@@ -20,8 +20,8 @@ int puzzle_one(bool debug) {
     std::cerr << "Couldn't open file!\n";
     return 0;
   }
-
   std::vector<std::vector<std::string>> lines = readFullFile(file, ' ');
+  file.close();
 
   int result = 0;
   int lineNumb = 0;
@@ -29,8 +29,6 @@ int puzzle_one(bool debug) {
     
     ++lineNumb;
   }
-
-  file.close();
 
   return result;
 }

@@ -35,26 +35,26 @@ unsigned long long puzzle_one(bool debug) {
       std::cout << "Check possibilities for Line " << lineNumb + 1 << ":\n";
     while (counter < std::pow(2, numbers.size())) {
       std::bitset<64> op{counter};
+      std::string possibleWay = line[0] + " = " + numbers[0];
       unsigned long long lineResult = std::stoull(numbers[0]);
-      if (debug)
-        std::cout << line[0] << " = " << lineResult;
       for (int i = 1; i < numbers.size(); i++) {
         if (op[i - 1]) {
           lineResult *= std::stoull(numbers[i]);
 
           if (debug)
-            std::cout << " * " << std::stoull(numbers[i]);
+            possibleWay = possibleWay + " * " + numbers[i];
         } else {
           lineResult += std::stoull(numbers[i]);
 
           if (debug)
-            std::cout << " + " << std::stoull(numbers[i]);
+            possibleWay = possibleWay + " + " + numbers[i];
         }
       }
-      if (debug)
-        std::cout << "\n";
       if (lineResult == std::stoull(line[0])) {
         result += lineResult;
+
+        if (debug)
+          std::cout << possibleWay << "\n";
         break;
       }
 
@@ -92,35 +92,34 @@ unsigned long long puzzle_two(bool debug) {
       }
 
       unsigned long long lineResult = std::stoull(numbers[0]);
-      if (debug)
-        std::cout << line[0] << " = " << lineResult;
+      std::string possibleWay = line[0] + " = " + numbers[0];
       for (int i = 1; i < numbers.size(); i++) {
         switch (op[op.size() - i]) {
         case '0':
           lineResult *= std::stoull(numbers[i]);
 
           if (debug)
-            std::cout << " * " << std::stoull(numbers[i]);
+            possibleWay = possibleWay + " * " + numbers[i];
           break;
         case '1':
           lineResult += std::stoull(numbers[i]);
 
           if (debug)
-            std::cout << " + " << std::stoull(numbers[i]);
+            possibleWay = possibleWay + " + " + numbers[i];
           break;
         case '2':
           std::string res = std::to_string(lineResult) + numbers[i];
           lineResult = std::stoull(res);
 
           if (debug)
-            std::cout << " || " << std::stoull(numbers[i]);
+            possibleWay = possibleWay + " || " + numbers[i];
           break;
         }
       }
-      if (debug)
-        std::cout << "\n";
       if (lineResult == std::stoull(line[0])) {
         result += lineResult;
+        if (debug)
+          std::cout << possibleWay << "\n";
         break;
       }
 

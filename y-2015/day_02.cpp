@@ -4,7 +4,8 @@
 
 int puzzleOne(bool debug) {
   std::fstream file("puzzle_inputs/input_02.txt");
-  std::vector<std::vector<std::string>> lines = readFullFile(file, 'x');
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file, 'x');
 
   int result = 0;
 
@@ -32,7 +33,8 @@ int puzzleOne(bool debug) {
 
 int puzzleTwo(bool debug) {
   std::fstream file("puzzle_inputs/input_02.txt");
-  std::vector<std::vector<std::string>> lines = readFullFile(file, 'x');
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file, 'x');
 
   int result = 0;
 
@@ -63,6 +65,7 @@ int main(int argc, char *argv[]) {
   bool debug = (argc > 1) ? true : false;
   std::cout << "Result Puzzle 1: " << puzzleOne(debug)
             << "\n"; // solution: 1586300
-  std::cout << "Result Puzzle 2: " << puzzleTwo(debug) << "\n"; // solution: 3737498
+  std::cout << "Result Puzzle 2: " << puzzleTwo(debug)
+            << "\n"; // solution: 3737498
   return 0;
 }

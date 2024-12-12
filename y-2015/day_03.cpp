@@ -5,7 +5,7 @@
 
 int puzzleOne(bool debug) {
   std::fstream file("puzzle_inputs/input_03.txt");
-  std::vector<std::string> line = readLine(file);
+  std::vector<std::string> line = read_line<std::string>(file);
 
   int result = 1;
 
@@ -52,7 +52,7 @@ int puzzleOne(bool debug) {
 
 int puzzleTwo(bool debug) {
   std::fstream file("puzzle_inputs/input_03.txt");
-  std::vector<std::string> line = readLine(file);
+  std::vector<std::string> line = read_line<std::string>(file);
 
   int result = 1;
   bool roboSanta = false;

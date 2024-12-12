@@ -8,7 +8,8 @@ int puzzleOne(bool debug) {
     return 0;
   }
 
-  std::vector<std::vector<std::string>> lines = readFullFile(file, '\\');
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file, '\\');
 
   int code = 0;
   int memory = 0;
@@ -63,14 +64,15 @@ int puzzleTwo(bool debug) {
     return 0;
   }
 
-  std::vector<std::vector<std::string>> lines = readFullFile(file);
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file);
 
   int code = 0;
   int memory = 0;
   int lineNumb = 0;
   bool lastEmpty = false;
   for (auto line : lines) {
-    bool escape = false; 
+    bool escape = false;
     int hex = 0;
     for (auto character : line[0]) {
       if (!escape && character == '\\') {

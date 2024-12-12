@@ -4,7 +4,8 @@
 
 int puzzleOne(bool debug) {
   std::fstream file("puzzle_inputs/input_05.txt");
-  std::vector<std::vector<std::string>> lines = readFullFile(file);
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file);
 
   std::string vowels = "aeiou";
   std::vector<std::string> badWord = {"ab", "cd", "pq", "xy"};
@@ -49,7 +50,8 @@ int puzzleOne(bool debug) {
 
 int puzzleTwo(bool debug) {
   std::fstream file("puzzle_inputs/input_05.txt");
-  std::vector<std::vector<std::string>> lines = readFullFile(file);
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file);
 
   std::string vowels = "aeiou";
 

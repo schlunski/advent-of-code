@@ -22,7 +22,8 @@ unsigned long long puzzle_one(bool debug) {
     return 0;
   }
 
-  std::vector<std::vector<std::string>> lines = readFullFile(file, ':');
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file, ':');
 
   unsigned long long result = 0;
   int lineNumb = 0;
@@ -74,7 +75,8 @@ unsigned long long puzzle_two(bool debug) {
     std::cerr << "Couldn't open file!\n";
     return 0;
   }
-  std::vector<std::vector<std::string>> lines = readFullFile(file, ':');
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file, ':');
 
   unsigned long long result = 0;
   int lineNumb = 0;

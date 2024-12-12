@@ -8,7 +8,8 @@ int puzzleOne(bool debug) {
     return 0;
   }
 
-  std::vector<std::vector<std::string>> lines = readFullFile(file);
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file);
 
   std::vector<std::string> accepted = {"XMAS", "SAMX"};
   int result = 0;
@@ -80,7 +81,8 @@ int puzzleTwo(bool debug) {
     return 0;
   }
 
-  std::vector<std::vector<std::string>> lines = readFullFile(file);
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file);
 
   std::vector<std::string> accepted = {"MAS", "SAM"};
   int result = 0;

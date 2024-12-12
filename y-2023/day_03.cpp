@@ -8,7 +8,8 @@ int puzzleOne(bool debug = false) {
   std::fstream file("puzzle-inputs/input_03.txt");
   int result = 0;
 
-  std::vector<std::vector<std::string>> linesvec = readFullFile(file);
+  std::vector<std::vector<std::string>> linesvec =
+      read_full_file<std::string>(file);
 
   std::vector<std::string> lines;
   for (auto &&line : linesvec) {
@@ -41,7 +42,7 @@ int puzzleOne(bool debug = false) {
     }
     if (debug)
       std::cout << "\nCheck line above:\n";
-    
+
     std::set<int> alreadyAdded = {};
 
     int lineResult = 0;
@@ -87,7 +88,7 @@ int puzzleOne(bool debug = false) {
           if (debug)
             std::cout << std::stoi(number) << "+";
           result += std::stoi(number);
-            lineResult += std::stoi(number);
+          lineResult += std::stoi(number);
           alreadyAdded.insert(pos);
           continue;
         }
@@ -119,9 +120,8 @@ int puzzleOne(bool debug = false) {
     if (linenumb + 1 < lines.size()) {
       for (auto &&[pos, number] : posWithNumber) {
         int min = (pos - 1 >= 0) ? pos - 1 : pos;
-        int max = (pos + number.size() < line.size())
-                      ? pos + number.size()
-                      : line.size();
+        int max = (pos + number.size() < line.size()) ? pos + number.size()
+                                                      : line.size();
         for (int checkPos = min; checkPos <= max; ++checkPos) {
           if (alreadyAdded.find(pos) == alreadyAdded.end() &&
               lines[linenumb + 1][checkPos] != '.' &&
@@ -159,9 +159,7 @@ int puzzleTwo(bool debug = false) {
 
 int main(int argc, char *argv[]) {
   bool debug = (argc > 1) ? true : false;
-  std::cout << "Result Puzzle 1: " << puzzleOne(debug)
-            << "\n"; // solution:
-  std::cout << "Result Puzzle 2: " << puzzleTwo(debug)
-            << "\n"; // solution
+  std::cout << "Result Puzzle 1: " << puzzleOne(debug) << "\n"; // solution:
+  std::cout << "Result Puzzle 2: " << puzzleTwo(debug) << "\n"; // solution
   return 0;
 }

@@ -7,7 +7,7 @@ unsigned long long puzzle_one(bool debug) {
     std::cerr << "Couldn't open file!\n";
     return 0;
   }
-  std::vector<std::string> line = readLine(file);
+  std::vector<std::string> line = read_line<std::string>(file);
   file.close();
 
   // convert to int vector
@@ -69,7 +69,7 @@ unsigned long long puzzle_two(bool debug) {
     std::cerr << "Couldn't open file!\n";
     return 0;
   }
-  std::vector<std::string> line = readLine(file);
+  std::vector<std::string> line = read_line<std::string>(file);
   file.close();
 
   // convert to vector with digit and length

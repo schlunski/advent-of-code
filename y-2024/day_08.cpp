@@ -9,7 +9,8 @@ int puzzle_one(bool debug) {
     return 0;
   }
 
-  std::vector<std::vector<std::string>> lines = readFullFile(file);
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file);
   file.close();
 
   // 2 dimensional vector with char and  bool if antidode on location
@@ -113,7 +114,8 @@ int puzzle_two(bool debug) {
     return 0;
   }
 
-  std::vector<std::vector<std::string>> lines = readFullFile(file);
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file);
   file.close();
 
   // 2 dimensional vector with char and  bool if antidode on location

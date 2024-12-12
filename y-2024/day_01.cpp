@@ -5,7 +5,7 @@
 int puzzleOne(bool debug = false) {
   std::fstream file("puzzle_inputs/input_01.txt");
   std::vector<std::vector<std::string>> collums =
-      readFullFile(file, ' ', 0, true);
+      read_full_file<std::string>(file, ' ', 0, true);
 
   int result = 0;
 
@@ -34,7 +34,7 @@ int puzzleOne(bool debug = false) {
 int puzzleTwo(bool debug = false) {
   std::fstream file("puzzle_inputs/input_01.txt");
   std::vector<std::vector<std::string>> collums =
-      readFullFile(file, ' ', 0, true);
+      read_full_file<std::string>(file, ' ', 0, true);
 
   int result = 0;
 

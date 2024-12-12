@@ -76,7 +76,8 @@ int puzzle_one(bool debug) {
     std::cerr << "Couldn't open file!\n";
     return 0;
   }
-  std::vector<std::vector<std::string>> lines = readFullFile(file);
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file);
   file.close();
   // Conver to int map
   std::vector<std::vector<int>> map;
@@ -121,7 +122,8 @@ int puzzle_two(bool debug) {
     std::cerr << "Couldn't open file!\n";
     return 0;
   }
-  std::vector<std::vector<std::string>> lines = readFullFile(file);
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file);
   file.close();
   // Conver to int map
   std::vector<std::vector<int>> map;

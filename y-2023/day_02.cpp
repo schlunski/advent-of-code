@@ -7,7 +7,8 @@ int puzzleOne(bool debug = false) {
   std::map<std::string, int> maxCubes = {
       {"red", 12}, {"green", 13}, {"blue", 14}};
   std::fstream file("puzzle-inputs/input_02.txt");
-  std::vector<std::vector<std::string>> lines = readFullFile(file);
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file);
 
   int result = 0;
 
@@ -56,11 +57,11 @@ int puzzleOne(bool debug = false) {
 int puzzleTwo(bool debug = false) {
   std::map<std::string, int> maxCubes = {
       {"red", 12}, {"green", 13}, {"blue", 14}};
-  std::map<std::string, int> minCubes = {
-      {"red", 0}, {"green", 0}, {"blue", 0}};
+  std::map<std::string, int> minCubes = {{"red", 0}, {"green", 0}, {"blue", 0}};
 
   std::fstream file("puzzle-inputs/input_02.txt");
-  std::vector<std::vector<std::string>> lines = readFullFile(file);
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file);
 
   int result = 0;
 
@@ -90,13 +91,13 @@ int puzzleTwo(bool debug = false) {
     for (auto &[color, cubes] : minCubes) {
       powers *= cubes;
     }
-  
+
     if (debug)
       std::cout << powers << "+";
-  
+
     result += powers;
   }
-  
+
   if (debug)
     std::cout << "0 = " << result << "\n";
 

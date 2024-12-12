@@ -8,18 +8,18 @@ TEST_CASE("reading one line at a time", "[readLine]") {
   std::vector<std::string> line;
 
   SECTION("without delimiter") {
-    line = readLine(file);
+    line = read_line<std::string>(file);
     REQUIRE(line.size() == 1);
     REQUIRE(line[0] == "Eins,Zwei,Drei");
     file.close();
   }
   SECTION("with delimiter") {
-    line = readLine(file, ',');
+    line = read_line<std::string>(file, ',');
     REQUIRE(line.size() == 3);
     REQUIRE(line[0] == "Eins");
     REQUIRE(line[2] == "Drei");
 
-    line = readLine(file, ',');
+    line = read_line<std::string>(file, ',');
     REQUIRE(line.size() == 3);
     REQUIRE(line[0] == "hallo");
     REQUIRE(line[2] == "alle");
@@ -33,14 +33,14 @@ TEST_CASE("reading full file", "[readFullFile]") {
 
   SECTION("columnwise") {
     SECTION("without skipping lines") {
-      lines = readFullFile(file, ',');
+      lines = read_full_file<std::string>(file, ',');
       REQUIRE(lines.size() == 3);
       REQUIRE(lines[0].size() == 3);
       REQUIRE(lines[1][0] == "Zwei");
       file.close();
     }
     SECTION("with skipping lines") {
-      lines = readFullFile(file, ',', 1);
+      lines = read_full_file<std::string>(file, ',', 1);
       REQUIRE(lines.size() == 3);
       REQUIRE(lines[0].size() == 2);
       REQUIRE(lines[0][0] == "hallo");
@@ -53,14 +53,14 @@ TEST_CASE("reading full file", "[readFullFile]") {
 
   SECTION("rowwise") {
     SECTION("without skipping lines") {
-      lines = readFullFile(file, ',', 0, false);
+      lines = read_full_file<std::string>(file, ',', 0, false);
       REQUIRE(lines.size() == 3);
       REQUIRE(lines[0][0] == "Eins");
       REQUIRE(lines[0][1] == "Zwei");
       file.close();
     }
     SECTION("with skipping lines") {
-      lines = readFullFile(file, ',', 2, false);
+      lines = read_full_file<std::string>(file, ',', 2, false);
       REQUIRE(lines.size() == 1);
       REQUIRE(lines[0][0] == "was");
       REQUIRE(lines[0][1] == "hier");

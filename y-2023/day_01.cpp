@@ -6,7 +6,7 @@
 int puzzleOne(bool debug = false) {
   std::fstream file("puzzle-inputs/input_01.txt");
   std::vector<std::vector<std::string>> lines =
-      readFullFile(file, '\0', 0, false);
+      read_full_file<std::string>(file, '\0', 0, false);
 
   int result = 0;
   std::string lineresult;
@@ -43,7 +43,7 @@ int puzzleOne(bool debug = false) {
 int puzzleTwo(bool debug = false) {
   std::fstream file("puzzle-inputs/input_01.txt");
   std::vector<std::vector<std::string>> lines =
-      readFullFile(file, '\0', 0, false);
+      read_full_file<std::string>(file, '\0', 0, false);
 
   std::map<char, std::string> possibleNumbers = {
       {'1', "one"},   {'2', "two"},   {'3', "three"},
@@ -74,7 +74,7 @@ int puzzleTwo(bool debug = false) {
       // number found in text
       if (nextline)
         break;
-      
+
       if (0 < int(character - '0') && int(character - '0') < 10) {
         lineresult.push_back(character);
         break;
@@ -103,7 +103,7 @@ int puzzleTwo(bool debug = false) {
       // number found in text
       if (nextline)
         break;
-      
+
       if (0 < int(character - '0') && int(character - '0') < 10) {
         lineresult.push_back(character);
         break;

@@ -3,7 +3,8 @@
 
 int puzzleOne(bool debug) {
   std::fstream file("puzzle_inputs/input_06.txt");
-  std::vector<std::vector<std::string>> lines = readFullFile(file, ' ');
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file, ' ');
 
   std::vector<std::vector<bool>> lightsGrid(false);
   lightsGrid.resize(1000);
@@ -53,7 +54,8 @@ int puzzleOne(bool debug) {
 
 int puzzleTwo(bool debug) {
   std::fstream file("puzzle_inputs/input_06.txt");
-  std::vector<std::vector<std::string>> lines = readFullFile(file, ' ');
+  std::vector<std::vector<std::string>> lines =
+      read_full_file<std::string>(file, ' ');
 
   std::vector<std::vector<int>> lightsGrid(false);
   lightsGrid.resize(1000);
@@ -103,7 +105,9 @@ int puzzleTwo(bool debug) {
 
 int main(int argc, char *argv[]) {
   bool debug = (argc > 1) ? true : false;
-  std::cout << "Result Puzzle 1: " << puzzleOne(debug) << "\n"; // solution: 543903
-  std::cout << "Result Puzzle 2: " << puzzleTwo(debug) << "\n"; // solution: 14687245
+  std::cout << "Result Puzzle 1: " << puzzleOne(debug)
+            << "\n"; // solution: 543903
+  std::cout << "Result Puzzle 2: " << puzzleTwo(debug)
+            << "\n"; // solution: 14687245
   return 0;
 }

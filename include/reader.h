@@ -43,14 +43,21 @@ std::vector<T> read_line(std::fstream &file, char delimiter = '\0') {
         result.push_back(std::stoul(word));
       } else if constexpr (std::is_same<T, unsigned long long>::value) {
         result.push_back(std::stoull(word));
+      } else if constexpr (std::is_same<T, char>::value) {
+        result.push_back(tmp);
       } else {
         throw std::invalid_argument("Not compatible Type");
       }
       word.clear();
     } else {
+      if constexpr (std::is_same<T, char>::value) {
+        result.push_back(tmp);
+        continue;
+      }
       word.push_back(tmp); // extend word
     }
   }
+
   if constexpr (std::is_same<T, std::string>::value) {
     result.push_back(word);
   } else if constexpr (std::is_same<T, int>::value) {
@@ -61,7 +68,7 @@ std::vector<T> read_line(std::fstream &file, char delimiter = '\0') {
     result.push_back(std::stoul(word));
   } else if constexpr (std::is_same<T, unsigned long long>::value) {
     result.push_back(std::stoull(word));
-  } else {
+  } else if constexpr (!std::is_same<T, char>::value)  {
     throw std::invalid_argument("Not compatible Type");
   }
 

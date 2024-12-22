@@ -7,7 +7,7 @@ My personal repository for [Advent of Code](https://adventofcode.com/) using C++
 - ```y-20xx/puzzle_inputs``` folder for inputs for each day in form ```input_xx.txt```
 
 # run
-Code can be run via ```make day_xx``` in the corresponding year folder. For debug messages run ```make day_xx_debug```
+Code can be run via ```make day_xx``` in the corresponding year folder, only one puzzle with adding the suffix ```_puzzle_one``` or ```_puzzle_two``` and for debug messages the suffix ```_debug```. Also possible for only one puzzle.
 
 # skript template
 ```

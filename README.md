@@ -13,6 +13,7 @@ Code can be run via ```make day_xx``` in the corresponding year folder, only one
 ```
 #include "../include/reader.h"
 #include <iostream>
+#include <cstring>
 
 unsigned puzzle_one(bool debug) {
   std::fstream file("puzzle_inputs/input_xx.txt");
